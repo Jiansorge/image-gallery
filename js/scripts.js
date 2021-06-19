@@ -1,21 +1,34 @@
-fetch('http://localhost:8080/data/photos.json', {
-  mode: 'cors',
-})
-.then(res => res.json())
-//.then(res => console.log("res:",res))
-.then(data => {
+ async function fetchImageData() {
+  try {
+    const response = await fetch('http://localhost:8080/data/photos.json', {
+      mode: 'cors',
+    })
+    const photos = response.json()
+    return photos
+  } catch (error) {
+      console.error(error);
+  }
+}
+
+async function saveImageData(){
+  const imgObjects = await fetchImageData()
+  console.log("imgobjcs",imgObjects)
+  return imgObjects
+}
+
+saveImageData()
+
+function appendImages(imgObjects){
   const container = document.getElementById('image-container');
   const docFrag = document.createDocumentFragment();
 
-  data.forEach(function(imageObject, index, originalArray) {
+  imgObjects.forEach(function(imgObject, index, originalArray) {
       const img = document.createElement('img');
-      img.src = imageObject.urls.small;
+      img.src = imgObject.urls.small;
       docFrag.appendChild(img);
-      console.log("img",index,img)
   });
 
   container.appendChild(docFrag);
-})
-.then(console.log("imageObjects:",imgObjects))
-.catch(e=>console.log(e));
+}
 
+//appendImages(data)
