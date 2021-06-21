@@ -25,7 +25,16 @@ The final result should be displayed to the user in an easy-to-read list.
     1. 'python simple-cors-http-server.py'
 1. Type 'localhost:8000' or open 'index.html' in a web browser
 
+## About
+
+- I also utilized img size to specify.  
+- I used img srcset to provide a responsive rendering of images based on image width.
+- Lastly, I used event capturing to only employ 1 onclick event handler to show full-screen images.
+
 ## Future Additions
 
--
+- If more time was available, I would have made the site more accessible. I added alt tags to images, but I did not test screen reader functionality. Furthermore, I don't forsee a full-screen function benefitting a screen reader use-case at this time.
 
+- The code appears to be maintainable, reusable and have a decent design. The full-screen image function could likely be optimized for legibility and verbosity.
+
+- If there was an API that provided new image data, I would implement an infinite scroll feature as a bonus.
