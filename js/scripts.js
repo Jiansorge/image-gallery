@@ -40,4 +40,9 @@ async function loadImages(){
   appendImages(imgObjects)
 }
 
+function exitImageFullscreen(){
+    const fullscreenContainer = document.getElementById("fullscreen-container");
+    fullscreenContainer.style.display = 'none'
+}
+
 loadImages()
