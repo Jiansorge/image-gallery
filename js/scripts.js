@@ -47,7 +47,9 @@ async function loadImages(){
 }
 
 function viewFullscreen(e){
-  if (!!e && e.target.nodeName === "IMG"){
+  if (!!e && e.target.nodeName === "IMG"
+  && e.target.classList[0] === "image-gallery"
+  ){
     const imgClone = e.target.cloneNode(true)
     imgClone.setAttribute("class", "fullscreen-image")
     const fullscreenContainer = document.getElementById("fullscreen-container");
