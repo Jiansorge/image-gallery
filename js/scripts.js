@@ -10,25 +10,34 @@
   }
 }
 
-async function saveImageData(){
-  const imgObjects = await fetchImageData()
-  console.log("imgobjcs",imgObjects)
-  return imgObjects
-}
-
-saveImageData()
-
 function appendImages(imgObjects){
   const container = document.getElementById('image-container');
   const docFrag = document.createDocumentFragment();
 
   imgObjects.forEach(function(imgObject, index, originalArray) {
-      const img = document.createElement('img');
-      img.src = imgObject.urls.small;
-      docFrag.appendChild(img);
+      const imgEl = document.createElement('img');
+      imgEl.srcset = `"${imgObject.urls.small} 600w,
+        ${imgObject.urls.regular} 1000w,
+        ${imgObject.urls.full} 5000w
+      "`;
+      imgEl.sizes = `"(min-width: 1024px) 25vw,
+       (min-width: 640px) and (max-width: 1023px) 50vw,
+       (max-width: 639px) 100vw
+       "` 
+      !!imgObject.description
+      ? imgEl.alt = imgObject.description 
+      : ''
+      imgEl.src = imgObject.urls.regular
+      imgEl.setAttribute("class", "image-gallery")
+      docFrag.appendChild(imgEl);
   });
-
+  
   container.appendChild(docFrag);
 }
 
-//appendImages(data)
+async function loadImages(){
+  const imgObjects = await fetchImageData()
+  appendImages(imgObjects)
+}
+
+loadImages()
