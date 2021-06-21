@@ -19,10 +19,11 @@ header h1.title {
 
 img.image-gallery {
   background-color:#333;
-  width: 22vw;
-  height: 22vw;
+  width: 23vw;
+  height: 25vw;
   color:white;
   margin: 5px;
+  object-fit: cover;
 }
 
 @media only screen and (max-width:600px) {
@@ -31,10 +32,21 @@ img.image-gallery {
   }
   img.image-gallery{
     height: 20rem;
-    width: 95%;
-    /* max-height: 20vw; */
-    /* max-width: auto; */
-    object-fit: cover;
+    width: 98%;
+  }
+}
+
+@media only screen and (min-width:600px) and (max-width:800px){
+  img.image-gallery{
+    width: 48%;
+    height: 20rem;
+  }
+}
+
+@media only screen and (min-width:800px) and (max-width:1000px){
+  img.image-gallery{
+    width: 31%;
+    height: 20rem;
   }
 }
 
@@ -48,7 +60,6 @@ img.image-gallery {
   position: fixed;
   top: 0;
   left: 0;
-  object-fit: cover;
   background-color: rgb(0,0,0,0.9);
   display: hidden;
   flex-direction: column;

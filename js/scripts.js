@@ -18,15 +18,17 @@ function appendImages(imgObjects){
       const imgEl = document.createElement('img');
       imgEl.srcset = `"${imgObject.urls.small} 600w,
         ${imgObject.urls.regular} 1000w,
-        ${imgObject.urls.full} 5000w
+        ${imgObject.urls.full} 4000w
       "`;
+
       imgEl.sizes = `"(min-width: 1024px) 25vw,
        (min-width: 640px) and (max-width: 1023px) 50vw,
        (max-width: 639px) 100vw
        "`;
 
       !!imgObject.description
-      ? imgEl.alt = imgObject.description 
+      ? (imgEl.alt = imgObject.description, 
+        imgEl.title = imgObject.description)
       : ''
       imgEl.src = imgObject.urls.regular
       imgEl.setAttribute("class", "image-gallery")
@@ -56,7 +58,6 @@ function exitImageFullscreen(){
   const fullscreenContainer = document.getElementById("fullscreen-container");
   fullscreenContainer.style.display = 'none'
   const img = document.querySelector(".fullscreen-image")
-  console.log("queried image", img)
   if (!!img){
     fullscreenContainer.removeChild(img)
   }
