@@ -23,7 +23,8 @@ function appendImages(imgObjects){
       imgEl.sizes = `"(min-width: 1024px) 25vw,
        (min-width: 640px) and (max-width: 1023px) 50vw,
        (max-width: 639px) 100vw
-       "` 
+       "`;
+
       !!imgObject.description
       ? imgEl.alt = imgObject.description 
       : ''
@@ -33,6 +34,7 @@ function appendImages(imgObjects){
   });
   
   container.appendChild(docFrag);
+  container.addEventListener("click",viewFullscreen,true)
 }
 
 async function loadImages(){
@@ -40,9 +42,24 @@ async function loadImages(){
   appendImages(imgObjects)
 }
 
-function exitImageFullscreen(){
+function viewFullscreen(e){
+  if (!!e && e.target.nodeName === "IMG"){
+    const imgClone = e.target.cloneNode(true)
+    imgClone.setAttribute("class", "fullscreen-image")
     const fullscreenContainer = document.getElementById("fullscreen-container");
-    fullscreenContainer.style.display = 'none'
+    fullscreenContainer.appendChild(imgClone)
+    fullscreenContainer.style.display = 'flex'
+  }
+}
+
+function exitImageFullscreen(){
+  const fullscreenContainer = document.getElementById("fullscreen-container");
+  fullscreenContainer.style.display = 'none'
+  const img = document.querySelector(".fullscreen-image")
+  console.log("queried image", img)
+  if (!!img){
+    fullscreenContainer.removeChild(img)
+  }
 }
 
 loadImages()
