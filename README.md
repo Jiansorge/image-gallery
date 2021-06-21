@@ -18,7 +18,6 @@ Display this list of photos to the user based on the following requirements:
     - ES6 and any required polyfills are perfectly acceptable, but not required
 The final result should be displayed to the user in an easy-to-read list.
 
-
 ## Instructions
 
 1. Start python simpleHTTPserver script using enabled CORS
