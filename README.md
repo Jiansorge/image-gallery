@@ -27,6 +27,7 @@ The final result should be displayed to the user in an easy-to-read list.
 ## About
   
 - I used img 'srcset' attribute to provide a responsive rendering of images based on image width. This method is performance optimized for responsive images.
+- The full-screen images are clones of the image components shown in the grid. The 'srcset' attribute is able to handle the wider rendering based on device width.
 - Media breakpoints have been created at 576px, 768px and 992px.
 - Lastly, I used event capturing to only employ 1 onclick event handler to show all full-screen images.
 
