@@ -16,15 +16,16 @@ function appendImages(imgObjects){
 
   imgObjects.forEach(function(imgObject, index, originalArray) {
       const imgEl = document.createElement('img');
-      imgEl.srcset = `"${imgObject.urls.small} 600w,
-        ${imgObject.urls.regular} 1000w,
-        ${imgObject.urls.full} 4000w
+      imgEl.srcset = `"${imgObject.urls.thumb} 200w,
+        ${imgObject.urls.small} 400w,
+        ${imgObject.urls.regular} 1080w,
+        ${imgObject.urls.full} 3333w
       "`;
 
-      imgEl.sizes = `"(min-width: 1024px) 25vw,
-       (min-width: 640px) and (max-width: 1023px) 50vw,
-       (max-width: 639px) 100vw
-       "`;
+      // imgEl.sizes = `"(min-width: 1024px) 25vw,
+      //  (min-width: 640px) and (max-width: 1023px) 50vw,
+      //  (max-width: 639px) 100vw
+      //  "`;
 
       !!imgObject.description
       ? (imgEl.alt = imgObject.description, 
@@ -51,12 +52,16 @@ function viewFullscreen(e){
     const fullscreenContainer = document.getElementById("fullscreen-container");
     fullscreenContainer.appendChild(imgClone)
     fullscreenContainer.style.display = 'flex'
+    const body = document.getElementsByTagName('body')[0]
+    body.classList.add("fixed")
   }
 }
 
 function exitImageFullscreen(){
   const fullscreenContainer = document.getElementById("fullscreen-container");
   fullscreenContainer.style.display = 'none'
+  const body = document.getElementsByTagName('body')[0]
+  body.classList.remove("fixed")
   const img = document.querySelector(".fullscreen-image")
   if (!!img){
     fullscreenContainer.removeChild(img)
