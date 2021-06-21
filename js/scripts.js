@@ -22,10 +22,11 @@ function appendImages(imgObjects){
         ${imgObject.urls.full} 3333w
       "`;
 
-      // imgEl.sizes = `"(min-width: 1024px) 25vw,
-      //  (min-width: 640px) and (max-width: 1023px) 50vw,
-      //  (max-width: 639px) 100vw
-      //  "`;
+      imgEl.sizes = `"(min-width: 992px) 23vw,
+      (min-width: 768px) and (max-width: 992px) 31%,
+       (min-width: 576px) and (max-width: 768px) 48%,
+       (max-width: 576px) 98%
+       "`;
 
       !!imgObject.description
       ? (imgEl.alt = imgObject.description, 
