@@ -26,10 +26,10 @@ The final result should be displayed to the user in an easy-to-read list.
 1. Type 'localhost:8000' or open 'index.html' in a web browser
 
 ## About
-
-- I also utilized img size to specify.  
+  
 - I used img srcset to provide a responsive rendering of images based on image width.
-- Lastly, I used event capturing to only employ 1 onclick event handler to show full-screen images.
+- Media breakpoints have been created at 576px, 768px and 992px.
+- Lastly, I used event capturing to only employ 1 onclick event handler to show all full-screen images.
 
 ## Future Additions
 
@@ -38,3 +38,5 @@ The final result should be displayed to the user in an easy-to-read list.
 - The code appears to be maintainable, reusable and have a decent design. The full-screen image function could likely be optimized for legibility and verbosity.
 
 - If there was an API that provided new image data, I would implement an infinite scroll feature as a bonus.
+
+- Any feedback would be appreciated! Please let me know if there's a better way to execute specific tasks.
