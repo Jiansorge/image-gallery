@@ -1,4 +1,4 @@
-# Redfin Coding Screen - Software Engineering - Front End
+# Image Gallery
 
 ## Challenge
 
